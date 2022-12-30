@@ -32,7 +32,11 @@
     </div>
 </div>
 
-<form>
-    
-</form>
+    <form  method="POST" id="post-input-box">
+        <label id="id_post_input_label"> Add Comment: </label> 
+        <input type="text" class="form-control" id ="id_post_input_text" name="text" placeholder="Join the discussion!">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-primary" id="id_post_button">Submit</button>
+    </form>
+
 {% endblock %}
