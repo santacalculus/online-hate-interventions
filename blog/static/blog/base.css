@@ -22,33 +22,17 @@
    margin: 2%;
 }
 
-/* #story{
-    margin-left: 25%;
-    padding: 1%;
-    display: inline-block;
-    width: 50%;
-    color: rgb(100, 100, 100);
-}
-
-#story_header {
-    margin-top: 2%;
-    margin-left: 25%;
-    padding-left: 1%;
-    display: inline-block;
-    width: 50%;
-    background-color: rgb(180, 180, 180);
-} */
-
 #comment_div {
     margin-left: 25%;
     width: 50%;
     padding: 1%;
 }
 
-#comment_header {
+#id_comment_header {
     display: inline-block;
     margin-bottom: 2px;
     font-size: 18px;
+
 }
 
 .comments {
