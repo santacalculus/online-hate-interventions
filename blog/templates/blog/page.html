@@ -1,6 +1,9 @@
 {% extends "blog/base.html" %}
 
 {% block content %}
+<a href="{% url 'logout' %}" id="id_nav_logout" class="nav-link">
+        Logout
+    </a>
 <div class = "row">
     <div class="row" id="id_story_card">
         <div class="card">
@@ -82,11 +85,11 @@
     </div>
 </div>
 
-<script>
+<!-- <script>
     
     window.onload = loadComments
     window.setInterval(loadComments,5000)
-</script>
+</script> -->
 
 
 

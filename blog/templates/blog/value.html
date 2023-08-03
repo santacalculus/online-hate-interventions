@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Bootstrap demo</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+  <style>
+     .custom-list-group .custom-list-group-item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  padding: 0.5rem;
+}
+
+.custom-list-group {
+  width: 100%;
+}
+
+    .custom-list-group-item {
+      display: block;
+      width: 100%;
+      padding: 0.5rem;
+    }
+    
+    .active-item {
+      background-color: blue !important;
+      color: white !important;
+    }
+
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+    
+    .input-margin {
+      margin-bottom: 10px;
+    }
+
+    .custom-container {
+  margin: 0;
+}
+.list-group {
+    margin: 25px; /* Adjust the value as needed */
+  }
+  .custom-container {
+    margin-bottom: 0;
+    padding-right: 0rem;
+    padding-left: 0rem;
+  }
+  
+  </style>
+  
+  </style>
+</head>
+<body>
+  <div class="card" style="width: 57.753rem;">
+    <div class="card-header">
+      Account Information
+    </div>
+    <div class="card-body">
+      <h5 class="card-title">Tell Us About Yourself</h5>
+      <p class="card-text">What are your interests?</p>
+      <input type="text" class="form-control">
+      <p class="card-text">Our platform strives to foster inspired conversations driven by what our users value and believe in.</p>
+      <p class="card-text">Which of these values stands out to you as most important in your life? For example, as having particular relevance to a current goal or recent experience.</p>
+      
+      <div class="list-group" id="list">
+       
+        
+        <div class="row">
+          <div class="col d-flex custom-container">
+            <li class="list-group-item list-group-item-action">Cheerfulness</li>
+          </div>
+          <div class="col d-flex custom-container">
+            <li class="list-group-item list-group-item-action">Capability</li>
+          </div>
+          <div class="col d-flex custom-container">
+            <li class="list-group-item list-group-item-action">Independence</li>
+          </div>
+          <div class="col d-flex custom-container">
+            <li class="list-group-item list-group-item-action">Helpfulness</li>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col d-flex custom-container">
+            <li class="list-group-item list-group-item-action">Ambition</li>
+          </div>
+          <div class="col d-flex custom-container">
+            <li class="list-group-item list-group-item-action">Courage</li>
+          </div>
+          <div class="col d-flex custom-container">
+            <li class="list-group-item list-group-item-action">Intellect</li>
+          </div>
+          <div class="col d-flex custom-container">
+            <li class="list-group-item list-group-item-action">Responsibility</li>
+          </div>
+        </div>
+        
+        <div class="row">
+          <div class="col d-flex custom-container">
+            <li class="list-group-item list-group-item-action">Love</li>
+          </div>
+          <div class="col d-flex custom-container">
+            <li class="list-group-item list-group-item-action">Politeness</li>
+          </div>
+          <div class="col d-flex custom-container">
+            <li class="list-group-item list-group-item-action">Broad-Mindedness</li>
+          </div>
+          <div class="col d-flex custom-container">
+            <li class="list-group-item list-group-item-action">Forgiveness</li>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col d-flex custom-container" >
+            <li class="list-group-item list-group-item-action">Cleanliness</li>
+          </div>
+          <div class="col d-flex custom-container">
+            <li class="list-group-item list-group-item-action">Honesty</li>
+          </div>
+          <div class="col d-flex custom-container">
+            <li class="list-group-item list-group-item-action">Logic</li>
+          </div>
+          <div class="col d-flex custom-container"></div> <!-- Empty column -->
+        </div>
+        <div class="row">
+          <div class="col d-flex custom-container">
+            <li class="list-group-item list-group-item-action">Self-Control</li>
+          </div>
+          <div class="col d-flex custom-container">
+            <li class="list-group-item list-group-item-action">Imagination</li>
+          </div>
+          <div class="col d-flex custom-container">
+            <li class="list-group-item list-group-item-action">Obidience</li>
+          </div>
+          <div class="col d-flex custom-container"></div> <!-- Empty column -->
+        </div>
+        
+        </div>
+       
+       
+        
+        
+      
+      <p class="card-text">Why is this value important to you?</p>
+      <textarea rows="3" cols="100"></textarea>
+      <p class="card-text">What is your catchphrase?</p>
+      <input type="text" class="form-control input-margin">
+      <div class="d-flex justify-content-center">
+        <button class="btn btn-primary">Save</button>
+      </div>
+    </div>
+  </div>
+  <script>
+    // JavaScript code
+    const listItems = document.querySelectorAll('.list-group-item-action');
+
+    listItems.forEach(item => {
+      item.addEventListener('click', function() {
+        // Remove 'active' class from all items
+        listItems.forEach(item => {
+          item.classList.remove('active-item');
+        });
+
+        // Add 'active' class to the clicked item
+        this.classList.add('active-item');
+      });
+    });
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.7/dist/umd/popper.min.js" integrity="sha384-zYPOMqeu1DAVkHiLqWBUTcbYfZ8osu1Nd6Z89ify25QV9guujx43ITvfi12/QExE" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.min.js" integrity="sha384-Y4oOpwW3duJdCWv5ly8SCFYWqFDsfob/3GkgExXKV4idmbt98QcxXYs9UoXAB7BZ" crossorigin="anonymous"></script>
+</body>
+</html>

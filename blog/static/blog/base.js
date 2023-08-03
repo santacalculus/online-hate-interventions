@@ -52,35 +52,35 @@ function openCommentBox() {
     
 }
 
-function loadComments() {
-    let xhr = new XMLHttpRequest()
-    xhr.onreadystatechange = function() {
-        if (this.readyState != 4) return
-        if (xhr.status == 200) {
-            let response = JSON.parse(xhr.responseText)
-            let commentresponse = response.comments
-            updateComments(commentresponse)
-            return
-        }
+// function loadComments() {
+//     let xhr = new XMLHttpRequest()
+//     xhr.onreadystatechange = function() {
+//         if (this.readyState != 4) return
+//         if (xhr.status == 200) {
+//             let response = JSON.parse(xhr.responseText)
+//             let commentresponse = response.comments
+//             updateComments(commentresponse)
+//             return
+//         }
 
-        if (xhr.status == 0) {
-            displayError("Cannot connect to server")
-            return
-        }
+//         if (xhr.status == 0) {
+//             displayError("Cannot connect to server")
+//             return
+//         }
     
     
-        if (!xhr.getResponseHeader('content-type') == 'application/json') {
-            displayError("Received status=" + xhr.status)
-            return
-        }
+//         if (!xhr.getResponseHeader('content-type') == 'application/json') {
+//             displayError("Received status=" + xhr.status)
+//             return
+//         }
     
-        let response = JSON.parse(xhr.responseText)
-        if (response.hasOwnProperty('error')) {
-            displayError(response.error)
-            return
-        }
+//         let response = JSON.parse(xhr.responseText)
+//         if (response.hasOwnProperty('error')) {
+//             displayError(response.error)
+//             return
+//         }
     
-        displayError(response)
-    }
+//         displayError(response)
+//     }
         
-}
+// }
