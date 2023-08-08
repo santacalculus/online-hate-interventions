@@ -27,7 +27,9 @@ from django.contrib.auth import authenticate
 
 #         return cleaned_data
 
-
+class EntryForm(forms.Form) :
+    new_post = forms.CharField(max_length=2000, 
+                               label='Join the Discussion!')
 
 class LoginForm(forms.Form) :
     username = forms.CharField(max_length=20)

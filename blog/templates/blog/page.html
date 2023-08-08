@@ -33,7 +33,20 @@
             <br>
             Mauris aliquet ac orci nec tristique. In velit ante, aliquam in mauris eu, pretium ornare enim. Suspendisse convallis nibh urna.    
         </div>
+        <div class="poststream" id="id_poststream">
+            {% for post in posts %}
+                <div id="id_post_div_{{post.id}}" class="post-div">
+                    <span id="id_post_text_{{post.id}}" class="post-text">{{post.text}}</span>
+                </div>
+            {% endfor %}
+        </div>
         <div class="row" id="id_comment_space">
+            <form action="{% url 'page' %}" method="POST" class="post-input-box">
+                <label id="id_post_input_label"> New Post: </label> 
+                <input type="text" id ="id_post_input_text" name="text">
+                {% csrf_token %}
+                <button type="submit" id="id_post_button" class="btn btn-primary">Submit</button>
+            </form>
             <div class="text-center">
                 <button type="button" class="btn btn-primary" id="id_add_comment" data-toggle="modal" data-target="#exampleModal"> Add Comment</button>
             </div>

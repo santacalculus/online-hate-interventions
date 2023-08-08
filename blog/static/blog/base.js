@@ -5,43 +5,7 @@ function openCommentBox() {
         var commboxdiv = document.getElementById("id_comment_space")
         $('#exampleModal').modal('hide'); // Close the modal
         commboxdiv.innerHTML = ""
-        var card = document.createElement('div')
-        card.className = 'card col-6'
         
-        
-        var cardHeader = document.createElement('div')
-        cardHeader.className = 'card-header'
-        // cardHeader.style.fontWeight = 'bold';
-        cardHeader.textContent = "Add Comment"
-
-        // Create card footer
-        var cardFooter = document.createElement('div')
-        cardFooter.className = 'card-footer'
-        
-        var cardSubmit = document.createElement('button')
-        cardSubmit.className = 'btn btn-primary'
-        cardSubmit.textContent = "Comment"
-
-        cardFooter.appendChild(cardSubmit)
-        
-        // Create card body
-        var cardBody = document.createElement('textarea')
-        cardBody.className = 'card-body'
-        cardBody.id = 'id_comment_input'
-        cardBody.placeholder = 'Join the discussion!'
-        cardBody.rows = 3
-        cardBody.style.overflowX = "auto"
-        cardBody.style.border = "none"
-        
-
-        // Append elements
-        card.appendChild(cardHeader);
-        card.appendChild(cardBody);
-        card.appendChild(cardFooter);
-
-        // Append card to container
-        var cardContainer = document.getElementById('cardContainer');
-        cardContainer.appendChild(card);
 
 
     } else {
