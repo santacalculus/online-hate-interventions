@@ -42,6 +42,8 @@ def login_action(request):
     if not form.is_valid():
         return render(request, 'blog/login.html', context)
 
+    new_user = authenticate(username=form.cleaned_data['username'],
+                            password=form.cleaned_data['password'])
     
     login(request, new_user)
     return redirect('page')
@@ -76,8 +78,6 @@ def register_action(request):
     new_user = authenticate(username=form.cleaned_data['username'],
                             password=form.cleaned_data['password'])
 
-    new_user = authenticate(username=form.cleaned_data['username'],
-                            password=form.cleaned_data['password'])
 
     new_profile = Profile(user = new_user)
     new_profile.save()

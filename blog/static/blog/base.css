@@ -53,3 +53,7 @@
 #id_post_button {
     text-align: center;
 }
+
+#id_postbox {
+    display: none;
+}
