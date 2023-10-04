@@ -1,6 +1,7 @@
 from django import forms
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate
+from blog.models import Profile, Post
 
 # class LoginForm(forms.Form) :
 #     username = forms.CharField(max_length=20, label=" Enter your Prolific ID")
@@ -33,33 +34,63 @@ class EntryForm(forms.Form) :
 
 class LoginForm(forms.Form) :
     username = forms.CharField(max_length=20)
-    password = forms.CharField(max_length=200, widget = forms.PasswordInput(), label="Enter your Prolific ID")
+    # password = forms.CharField(max_length=200, widget = forms.PasswordInput(), label="Enter your Prolific ID")
 
     # Customizes form validation for properties that apply to more
     # than one field.  Overrides the forms.Form.clean function.
     def clean(self):
         cleaned_data = super().clean()
         username = cleaned_data.get('username')
-        password = cleaned_data.get('password')
-        user = authenticate(username=username, password=password)
+        # password = cleaned_data.get('password')
+        user = authenticate(username=username)
         # Confirms that the two password fields match
         if not user:
-            raise forms.ValidationError("Invalid username/password")
+            raise forms.ValidationError("Invalid Prolific ID")
         # We must return the cleaned data we got from our parent.
         return cleaned_data
 
+class ValueForm(forms.ModelForm):    
+    class Meta:
+        model = Profile
+        fields = ['interests', 'value', 'value_importance', 'catchphrase']
+        widgets = {
+            'interests': forms.TextInput(attrs={'class': 'form-control'}),
+            'value': forms.HiddenInput(),
+            # 'form_value': forms.TextInput(attrs={'class': 'form-control'}),
+            'value_importance': forms.Textarea(attrs={'class': 'form-control', 'rows': 3}),
+            'catchphrase': forms.TextInput(attrs={'class': 'form-control'}),
+        }
+    
+    # def __init__(self, *args, **kwargs):
+    #     super().__init__(*args, **kwargs)
+    #     self.fields['interests'].validators.append(validate_meaningful_response)
+    #     self.fields['interests'].validators.append(validate_no_excessive_punctuation)
+    #     self.fields['interests'].validators.append(validate_min_length)
+    #     self.fields['interests'].validators.append(validate_no_patterns)
+    #     self.fields['interests'].validators.append(validate_not_trivial)
+    #     self.fields['interests'].validators.append(validate_no_repetitive_characters)
+      
+    #     self.fields['value_importance'].validators.append(validate_meaningful_response)
+    #     self.fields['value_importance'].validators.append(validate_no_excessive_punctuation)
+    #     self.fields['value_importance'].validators.append(validate_min_length)
+    #     self.fields['value_importance'].validators.append(validate_no_patterns)
+    #     self.fields['value_importance'].validators.append(validate_not_trivial)
+    #     self.fields['value_importance'].validators.append(validate_no_repetitive_characters)
+        
+
+    #     self.fields['catchphrase'].validators.append(validate_meaningful_response)
+    #     self.fields['catchphrase'].validators.append(validate_no_excessive_punctuation)
+    #     self.fields['catchphrase'].validators.append(validate_min_length)
+    #     self.fields['catchphrase'].validators.append(validate_no_patterns)
+    #     self.fields['catchphrase'].validators.append(validate_not_trivial)
+    #     self.fields['catchphrase'].validators.append(validate_no_repetitive_characters)
 
 
 
 class RegisterForm(forms.Form):
     username   = forms.CharField(max_length = 20,
-                                 label='Username')
-    password  = forms.CharField(max_length = 200, 
-                                 label='Prolific ID', 
-                                 widget = forms.PasswordInput())
-    confirm_password  = forms.CharField(max_length = 200, 
-                                 label='Confirm Prolific ID',  
-                                 widget = forms.PasswordInput())
+                                 label='Prolific ID')
+    
 
     # Customizes form validation for properties that apply to more
     # than one field.  Overrides the forms.Form.clean function.
@@ -67,12 +98,9 @@ class RegisterForm(forms.Form):
         # Calls our parent (forms.Form) .clean function, gets a dictionary
         # of cleaned data as a result
         cleaned_data = super().clean()
-
-        # Confirms that the two password fields match
-        password = cleaned_data.get('password')
-        confirm_password = cleaned_data.get('confirm_password')
-        if password and confirm_password and password != confirm_password:
-            raise forms.ValidationError("Passwords did not match.")
+        print(cleaned_data)
+    
+        
 
         # We must return the cleaned data we got from our parent.
         return cleaned_data
@@ -83,7 +111,7 @@ class RegisterForm(forms.Form):
         # User model database.
         username = self.cleaned_data.get('username')
         if User.objects.filter(username__exact=username):
-            raise forms.ValidationError("Username is already taken.")
+            raise forms.ValidationError(" Prolific ID already exists.")
 
         # We must return the cleaned data we got from the cleaned_data
         # dictionary

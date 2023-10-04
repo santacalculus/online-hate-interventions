@@ -4,6 +4,7 @@
 <a href="{% url 'logout' %}" id="id_nav_logout" class="nav-link">
         Logout
     </a>
+<a href="{% url 'page2' user.id %}">page2</a>
 <div class = "row">
     <div class="row" id="id_story_card">
         <div class="card">
@@ -44,11 +45,13 @@
         </div>
         <div class="row" id="id_comment_space">
             <div id="id_postbox">
-                <form action="{% url 'page' %}" method="POST" class="post-input-box">
-                    <label id="id_post_input_label"> New Post: </label> 
-                    <input type="text" id ="id_post_input_text" name="text">
+                <form action="{% url 'page' %}" method="POST" class="card">
+                    <label id="id_post_input_label" class="card-header"><b>Add Comment:</b> </label> 
+                    <input type="text" id ="id_post_input_text" name="text" class="card-body">
                     {% csrf_token %}
-                    <button type="submit" id="id_post_button" class="btn btn-primary">Submit</button>
+                    <div class="card-footer">
+                        <button type="submit" id="id_post_button" class="btn btn-primary">Submit</button>
+                    </div>
                 </form>
             </div>
             
