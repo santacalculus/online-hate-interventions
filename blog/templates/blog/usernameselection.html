@@ -51,23 +51,7 @@
                
                 <form action="{% url 'page' %}" method="POST" class="card">
                     <label id="id_post_input_label" class="card-header"> 
-                        <table style="width: 100%;">
-                            <tr>
-                                <th style="text-align: center;">Your Profile</th>
-                                <th style="text-align: center; color: rgb(0, 132, 255);">
-                                    Interests: <br>
-                                    <span style="color: gray; font-style:italic; font-weight:lighter;">{{request.user.profile.interests}}</span>
-                                </th>
-                                <th style="text-align: center; color: rgb(0, 132, 255);">
-                                    Most Important Value: <br>
-                                    <span style="color: gray; font-style:italic; font-weight:lighter;">{{request.user.profile.value}}</span>
-                                </th>
-                                <th style="text-align: center; color: rgb(0, 132, 255);">
-                                    Personal motto: <br>
-                                    <span style="color: gray; font-style:italic; font-weight:lighter;">{{request.user.profile.catchphrase}}</span>
-                                </th>
-                            </tr>
-                        </table>
+                        
                     </label> 
                     <input type="text" id ="id_post_input_text" name="text" class="card-body" placeholder="Join the Discussion!" style="border: none;">
                     {% csrf_token %}

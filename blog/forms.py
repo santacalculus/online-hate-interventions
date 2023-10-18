@@ -42,7 +42,9 @@ class LoginForm(forms.Form) :
         cleaned_data = super().clean()
         username = cleaned_data.get('username')
         # password = cleaned_data.get('password')
+        
         user = authenticate(username=username)
+        print("user", user)
         # Confirms that the two password fields match
         if not user:
             raise forms.ValidationError("Invalid Prolific ID")
